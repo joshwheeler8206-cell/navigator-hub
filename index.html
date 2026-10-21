@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1120">
+<meta name="description" content="U.S. AutoForce Navigator Hub - driver benefit values by location, ride-along log and HR follow-ups">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Navigator Hub">
+<title>U.S. AutoForce &middot; Navigator Hub</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="hub" class="hub">
+
+<header class="app-header">
+  <div class="brand">
+    <img src="icons/logo-tile.png" alt="U.S. AutoForce" class="brand-logo">
+    <div class="brand-text">
+      <h1>Navigator Hub</h1>
+      <p>Benefits &middot; Locations &middot; Ride-Alongs</p>
+    </div>
+  </div>
+  <div class="header-actions">
+    <span id="netBadge" class="net-badge net-on" role="status" title="Connection status">
+      <span class="net-label">Online</span>
+    </span>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle light/dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="view" class="view">
+  <!-- Rendered by app.js -->
+</main>
+
+<nav class="tabbar">
+  <button class="tab active" data-view="home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span>Home</span>
+  </button>
+  <button class="tab" data-view="locations" aria-label="Locations">
+    <svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Locations</span>
+  </button>
+  <button class="tab" data-view="benefits" aria-label="Benefits">
+    <svg viewBox="0 0 24 24"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2M4 12h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Benefits</span>
+  </button>
+  <button class="tab" data-view="rides" aria-label="Ride-alongs">
+    <svg viewBox="0 0 24 24"><path d="M3 16V8h10l3 3h5v5H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Rides</span>
+  </button>
+  <button class="tab" data-view="reports" aria-label="Reports">
+    <svg viewBox="0 0 24 24"><path d="M7 3h10a1 1 0 0 1 1 1v17H6V4a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Sheet</span>
+  </button>
+</nav>
+
+<div id="toast" class="toast" role="status"></div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
