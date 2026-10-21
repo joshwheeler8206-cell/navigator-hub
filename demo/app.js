@@ -1400,12 +1400,6 @@ function boot() {
     applyTheme();
   }
 
-  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    window.addEventListener('load', () => {
-      void 0.catch(() => {});
-    });
-  }
-
   load();
 }
 
