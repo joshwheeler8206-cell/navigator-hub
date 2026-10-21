@@ -291,3 +291,21 @@ select.big { font-size: 15px; font-weight: 700; padding: 12px; }
   .card-grid > .card { margin-bottom: 0; }
   .stat strong { font-size: 26px; }
 }
+
+/* ---------------- safety huddle embed ---------------- */
+.huddle-wrap { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+.huddle-frame { display: block; width: 100%; height: calc(100vh - 240px); min-height: 460px; border: 0; background: #0b1120; }
+.huddle-scroll-note { display: none; }
+@media (max-width: 760px) {
+  /* the huddle sheet is a letter-size page: let it keep its width and scroll sideways */
+  .huddle-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .huddle-frame { width: 760px; height: calc(100vh - 250px); min-height: 420px; }
+  .huddle-scroll-note { display: block; margin: 0 0 8px; font-size: 11.5px; color: var(--muted); }
+}
+@media print { .huddle-wrap, .huddle-frame, .huddle-scroll-note { display: none !important; } }
+
+/* six tabs need a little less room */
+@media (max-width: 420px) {
+  .tab { font-size: 9px; padding-left: 0; padding-right: 0; }
+  .tab svg { width: 19px; height: 19px; }
+}

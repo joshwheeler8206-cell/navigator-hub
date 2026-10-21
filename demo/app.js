@@ -322,7 +322,7 @@ function updateNetBadge() {
 
 /* ------------------------------ router / tabs ------------------------------ */
 
-const TABS = ['home', 'locations', 'benefits', 'rides', 'reports'];
+const TABS = ['home', 'locations', 'benefits', 'rides', 'reports', 'huddle'];
 
 function go(tab) {
   if (!TABS.includes(tab)) tab = 'home';
@@ -356,6 +356,7 @@ function render(initial) {
     case 'benefits': view.appendChild(renderBenefits()); break;
     case 'rides': view.appendChild(renderRides()); break;
     case 'reports': view.appendChild(renderReports()); break;
+    case 'huddle': view.appendChild(renderHuddle()); break;
     default: view.appendChild(renderHome());
   }
 }
@@ -484,7 +485,8 @@ function renderHome() {
       el('button', { class: 'btn primary', type: 'button', onclick: () => openLocationModal(null) }, ['+ Add location']),
       el('button', { class: 'btn', type: 'button', onclick: () => { if (!state.locations.length) { toast('Add a location first'); return; } openRideModal(null); } }, ['+ Log ride-along']),
       el('button', { class: 'btn', type: 'button', onclick: () => go('benefits') }, ['Enter benefit values']),
-      el('button', { class: 'btn', type: 'button', onclick: () => go('reports') }, ['Print a location sheet'])
+      el('button', { class: 'btn', type: 'button', onclick: () => go('reports') }, ['Print a location sheet']),
+      el('button', { class: 'btn', type: 'button', onclick: () => go('huddle') }, ['Safety huddle'])
     ])
   ]);
   frag.appendChild(qa);
@@ -1023,6 +1025,50 @@ function renderRides() {
 
     frag.appendChild(card);
   });
+
+  return frag;
+}
+
+/* ------------------------------ SAFETY HUDDLE ------------------------------ */
+
+function isoWeekNow() {
+  const d = new Date();
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+  const day = t.getUTCDay() || 7;
+  t.setUTCDate(t.getUTCDate() + 4 - day);
+  const yStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+  return Math.ceil(((t - yStart) / 86400000 + 1) / 7);
+}
+
+function renderHuddle() {
+  const frag = el('div');
+  const week = isoWeekNow();
+
+  frag.appendChild(el('div', { class: 'page-title' }, [
+    el('div', {}, [
+      el('h2', {}, ['Safety huddle']),
+      el('p', {}, ['This week\u2019s topic, ready to print. Week ' + week + ' \u00b7 use the controls inside for other weeks.'])
+    ]),
+    el('button', {
+      class: 'btn sm', type: 'button',
+      onclick: () => window.open('safety-huddle.html?week=' + week, '_blank')
+    }, ['Open full page ↗'])
+  ]));
+
+  frag.appendChild(el('p', { class: 'huddle-scroll-note' }, [
+    'The huddle is a letter-size sheet \u2014 scroll sideways to read it, or open the full page.'
+  ]));
+
+  const wrap = el('div', { class: 'huddle-wrap' }, [
+    el('iframe', {
+      id: 'huddleFrame',
+      class: 'huddle-frame',
+      src: 'safety-huddle.html?week=' + week,
+      title: 'Safety huddle generator',
+      loading: 'eager'
+    })
+  ]);
+  frag.appendChild(wrap);
 
   return frag;
 }

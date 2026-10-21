@@ -16,6 +16,7 @@ location, and produces the one-page driver sheet from those values.
 | **Benefits** | The seven programs with amount & unit, eligibility, how to claim, effective date and who confirmed it — filterable, copyable between locations |
 | **Rides** | Ride-along log: what was briefed, which programs were covered, and questions that need HR to answer |
 | **Sheet** | Branded one-page summary per location; prints straight to PDF with a **PENDING** banner while values are missing |
+| **Huddle** | The weekly Safety Huddle Generator, embedded — current ISO week's topic, prints straight to PDF. Use the controls inside the page for other weeks, the zoom and the 3D deck |
 
 ### The seven programs
 
@@ -44,6 +45,11 @@ location, and produces the one-page driver sheet from those values.
 - Audit IDs (`LOC-…`, `NAV-…`, `RIDE-…`) and created/updated timestamps on every
   record, matching the controlled-document work in Driver Hub.
 - Dark mode follows the system, can be toggled in the header.
+- **Safety huddle** is the same self-contained generator used on the desktop
+  (`safety-huddle.html`, built from `~/scripts/safety_huddle_build_html.py` and
+  served from this app so it works offline). It always opens on the current ISO
+  week; the hub passes `?week=<n>`. To refresh it, re-run the builder and copy
+  the output over `navigator-hub/safety-huddle.html`.
 
 ## Install
 

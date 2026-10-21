@@ -1,9 +1,10 @@
-const CACHE = 'navigator-hub-v1';
+const CACHE = 'navigator-hub-v2';
 const ASSETS = [
   './',
   './index.html',
   './styles.css',
   './app.js',
+  './safety-huddle.html',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
