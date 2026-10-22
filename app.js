@@ -504,6 +504,28 @@ function renderHome() {
   data.appendChild(dataActions);
   frag.appendChild(data);
 
+  /* about / showcase card */
+  frag.appendChild(el('div', { class: 'card' }, [
+    el('h3', { class: 'card-title' }, ['About this toolkit']),
+    el('p', { class: 'card-sub' }, [
+      'Seven driver apps built for the Navigator role and the people around it — ' +
+      'same roster, same look, all working offline on a phone.']),
+    el('div', { style: 'display:flex;gap:8px;flex-wrap:wrap;margin-top:10px' }, [
+      el('button', {
+        class: 'btn', type: 'button',
+        onclick: () => window.open(
+          'https://joshwheeler8206-cell.github.io/showcase/', '_blank')
+      }, ['📖 The full story']),
+      el('button', {
+        class: 'btn', type: 'button',
+        onclick: () => window.open(
+          'https://joshwheeler8206-cell.github.io/showcase/one-pager/', '_blank')
+      }, ['📄 One-page summary'])
+    ]),
+    el('p', { class: 'card-sub', style: 'margin-top:10px;font-size:12px;opacity:.75' },
+      ['Created by a Driver Navigator for the Driver Navigator.'])
+  ]));
+
   return frag;
 }
 
