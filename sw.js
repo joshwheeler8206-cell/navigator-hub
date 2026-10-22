@@ -1,4 +1,4 @@
-const CACHE = 'navigator-hub-v2';
+const CACHE = 'navigator-hub-v3';
 const ASSETS = [
   './',
   './index.html',
