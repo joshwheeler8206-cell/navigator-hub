@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1120">
-<meta name="description" content="U.S. AutoForce Navigator Hub - driver benefit values by location, ride-along log and HR follow-ups">
+<meta name="description" content="U.S. AutoForce Navigator Hub - the 90-day new-hire playbook, the real driver benefits in plain English, policies, ride-alongs and print-ready sheets">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -24,7 +24,7 @@
     <img src="icons/logo-tile.png" alt="U.S. AutoForce" class="brand-logo">
     <div class="brand-text">
       <h1>Navigator Hub</h1>
-      <p>Benefits &middot; Locations &middot; Ride-Alongs</p>
+      <p id="brandSub">Your first 90 days &middot; the good stuff &middot; the rules</p>
     </div>
   </div>
   <div class="header-actions">
@@ -38,6 +38,15 @@
   </div>
 </header>
 
+<div class="rolebar no-print" role="group" aria-label="Choose your view">
+  <button class="role active" data-role="hire" type="button">
+    <span class="role-dot"></span> New hire view
+  </button>
+  <button class="role" data-role="nav" type="button">
+    <span class="role-dot"></span> Navigator view
+  </button>
+</div>
+
 <main id="view" class="view">
   <!-- Rendered by app.js -->
 </main>
@@ -47,25 +56,25 @@
     <svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
     <span>Home</span>
   </button>
-  <button class="tab" data-view="locations" aria-label="Locations">
-    <svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-    <span>Locations</span>
+  <button class="tab" data-view="playbook" aria-label="90-day playbook">
+    <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>90 days</span>
   </button>
   <button class="tab" data-view="benefits" aria-label="Benefits">
     <svg viewBox="0 0 24 24"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2M4 12h16" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-    <span>Benefits</span>
+    <span>Good stuff</span>
+  </button>
+  <button class="tab" data-view="policies" aria-label="Policies">
+    <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>Rules</span>
   </button>
   <button class="tab" data-view="rides" aria-label="Ride-alongs">
     <svg viewBox="0 0 24 24"><path d="M3 16V8h10l3 3h5v5H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="18" r="1.8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
     <span>Rides</span>
   </button>
-  <button class="tab" data-view="huddle" aria-label="Safety huddle">
-    <svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
-    <span>Huddle</span>
-  </button>
-  <button class="tab" data-view="reports" aria-label="Reports">
+  <button class="tab" data-view="print" aria-label="Print">
     <svg viewBox="0 0 24 24"><path d="M7 3h10a1 1 0 0 1 1 1v17H6V4a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <span>Sheet</span>
+    <span>Print</span>
   </button>
 </nav>
 
@@ -73,7 +82,8 @@
 
 </div>
 <script src="idbshim.js"></script>
-<script src="seed.js"></script>
-<script src="app.js"></script>
+  <script src="seed.js"></script>
+  <script src="demo_click.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

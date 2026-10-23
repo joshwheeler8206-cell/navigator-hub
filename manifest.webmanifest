@@ -1,7 +1,7 @@
 {
   "name": "AutoForce Navigator Hub",
   "short_name": "Navigator Hub",
-  "description": "U.S. AutoForce - driver benefit values by location, ride-along log and HR follow-ups for the Driver Trainer / Navigator.",
+  "description": "U.S. AutoForce Driver Navigator Hub - the new hire\u2019s first 90 days in one place: benefit values with the real numbers, the policies that matter, ride-along log, HR follow-ups and six print-ready sheets.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

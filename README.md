@@ -1,99 +1,104 @@
 # U.S. AutoForce — Navigator Hub
 
-A companion to **Driver Hub**, built for the Driver Trainer / Navigator who works
-with HR: it keeps every benefit program's **actual dollar values** straight, per
-location, and produces the one-page driver sheet from those values.
+**The first 90 days of a new driver, in one place.** A phone-sized app with two
+views — what the **new hire** sees, and what the **Navigator** sees — built from
+the real HR document set.
 
-> **Status:** working prototype. Values in the [demo](https://joshwheeler8206-cell.github.io/navigator-hub/demo/)
-> are samples — real figures come from HR.
+- **Live app:** https://joshwheeler8206-cell.github.io/navigator-hub/
+- **Demo (seeded):** https://joshwheeler8206-cell.github.io/navigator-hub/demo/
+- **Hand this to HR:** the app's **Print → HR summary (3 pages)** sheet
 
-## What it does
+> **On the numbers:** every published figure is transcribed from the document
+> named on the card. Three benefits have no published number anywhere in the
+> document set — the app says so, in front of the driver, instead of guessing.
 
-| Tab | Purpose |
+---
+
+## Two views, one record
+
+Flip the switch at the top of the app.
+
+| **New hire view** | **Navigator view** |
 | --- | --- |
-| **Home** | Completeness at a glance + a "needs attention" inbox (locations missing values, drafts, unanswered HR questions) |
-| **Locations** | One card per terminal: drivers covered, benefit year, carriers, union, and the four people drivers call |
-| **Benefits** | The seven programs with amount & unit, eligibility, how to claim, effective date and who confirmed it — filterable, copyable between locations |
-| **Rides** | Ride-along log: what was briefed, which programs were covered, and questions that need HR to answer |
-| **Sheet** | Branded one-page summary per location; prints straight to PDF with a **PENDING** banner while values are missing |
-| **Huddle** | The weekly Safety Huddle Generator, embedded — current ISO week's topic, prints straight to PDF. Use the controls inside the page for other weeks, the zoom and the 3D deck |
+| Day X of 90, with the next steps named | Benefit values confirmed per location, with who confirmed them and when |
+| Every benefit with the real number and how to claim it | A **Needs attention** list of what is missing or unpublished |
+| The seven policies that matter, in plain English | Ride-along log: programs briefed, notes, questions raised |
+| One-tap call buttons for Navigator, dispatch, HR | Open HR questions, tracked until answered |
+| A checklist they tick themselves, dated | Six print sheets, including a full packet |
 
-### The seven programs
+## The tabs
 
-1. Uniforms & dress code — shirt sets + sweatshirts after the waiting period
-2. Safety shoe reimbursement
-3. Wellness equipment — running shoes, gym, fitness watch
-4. Walking / step-goal program — monthly reward
-5. RAVE recognition — points redeemable for store credit / gift cards
-6. Driver of the Month — parking spot, RAVE points, lunch
-7. Annual health screen — insurance premium discount
+| Tab | What it does |
+| --- | --- |
+| **Home** | Day X of 90, the four money tiles, next three steps, who to call |
+| **90 days** | The full program: 8 phases / 29 steps, each with *why it matters*, tickable and dated |
+| **Good stuff** | 15 benefits — the number, who is eligible, how to claim, and the source document |
+| **Rules** | 7 policy cards: dress code, driver policy, recognition, time off, paycheck, Speak Up, ideas |
+| **Rides** | Ride-along log plus the open HR question list |
+| **Print** | Sheet picker → prints clean letter pages straight from the phone |
 
-## Details that matter
+## The money nobody hears in week one
 
-- **No fake numbers.** A program counts as complete only when amount, eligibility
-  and how-to-claim are all filled in; each value carries a status of
-  **TBD → Needs review → Confirmed**, plus who confirmed it and when.
-- **Nothing prints dirty.** The location sheet prints blank lines and a red
-  PENDING banner for anything not confirmed, so an incomplete sheet can never be
-  mistaken for the final answer.
-- **Copy between locations.** Most programs are identical across terminals —
-  copy them in one action, then review and confirm.
-- **Month / day / year dropdowns** instead of the native date picker (same fix the
-  rest of the suite uses — arbitrary years are painful on phones).
-- **Offline-first PWA**, data stays in IndexedDB on the device, JSON backup with
-  merge = sync (adds + updates, never deletes).
-- Audit IDs (`LOC-…`, `NAV-…`, `RIDE-…`) and created/updated timestamps on every
-  record, matching the controlled-document work in Driver Hub.
-- Dark mode follows the system, can be toggled in the header.
-- **Safety huddle** is the same self-contained generator used on the desktop
-  (`safety-huddle.html`, built from `~/scripts/safety_huddle_build_html.py` and
-  served from this app so it works offline). It always opens on the current ISO
-  week; the hub passes `?week=<n>`. To refresh it, re-run the builder and copy
-  the output over `navigator-hub/safety-huddle.html`.
+| Benefit | What you get | Source |
+| --- | --- | --- |
+| Finding a Better Way | **$20,000 / $10,000 / $5,000** for the best ideas | Finding-a-Better-Way FAQs |
+| Wellness reimbursement | **$250/yr** — gym, classes, race fees, home equipment, wearables | Wellness Reimbursement |
+| Safety shoes | **100% up to $150** every 12 months, ASTM F2413-18 | Dress Code Policy · p.2 |
+| Uniforms | **50% reimbursed** on Company Store orders | Dress Code Policy · p.2 |
+| Vacation | 80 h / 120 h / 160 h by service; 40 h carry-over cap | Vacation-Personal Day Policy |
+| Personal days | 4 days / 32 h at 5–10 years | Vacation-Personal Day Policy |
+| Volunteer time | 8 hours per calendar year | Understanding Your USV Paycheck |
+| RAVE recognition | Points redeemable for merchandise or gift cards | Driver Benefits · Paycheck |
+| Walkingspree | Cash every month you hit the goal | *needs HR — amount and step target* |
+| Annual health screen | Medical premium discount | *needs HR — amount and window* |
+| Driver of the Month | Parking spot + RAVE points + team lunch | *needs HR — point and lunch value* |
 
-## Install
+Plus sick time, holidays, MOTUS mileage, and employer-paid medical / dental / life /
+401(k) — 15 programs in all.
 
-**Android:** open the site in Chrome → menu → *Install app* (or *Add to Home screen*).
-An APK can be built later with the same pipeline as the other six apps.
+## The 90-day program
 
-**iPhone / iPad:** open in Safari → Share → *Add to Home Screen*.
+| Phase | When | Steps |
+| --- | --- | --- |
+| 01 Day one | First shift | 4 |
+| 02 Day two | Workday & accounts | 3 |
+| 03 Week one | Safety & the rules | 5 |
+| 04 Weeks 2–4 | Behind the wheel | 5 |
+| 05 Day 30 | Now you can spend it | 3 |
+| 06 Day 45–60 | On your own, with backup | 4 |
+| 07 Day 75 | The honest conversation | 2 |
+| 08 Day 90 | Sign it off | 3 |
 
-**Demo (no data needed):** https://joshwheeler8206-cell.github.io/navigator-hub/demo/
+## Print sheets (letter, one tap)
 
-## Run locally
+1. **The good stuff** — every benefit on one page
+2. **90-day checklist** — dated ticks + signature block
+3. **Policy essentials** — the rules, one page
+4. **Location sheet** — confirmed values for one terminal (with a **PENDING** banner until it is complete)
+5. **Full packet** — all of the above, in order
+6. **Safety huddle** — this week's topic
+7. **HR summary** — the 3-page handout for HR leadership
 
-```bash
-cd navigator-hub
-python3 -m http.server 8911
-# http://127.0.0.1:8911/
+## How it runs
+
+- One HTML app. Installs to a phone home screen (PWA) or ships as a signed APK; works on iPhone through Safari.
+- **Offline after first load.** No login, no server, no telemetry.
+- Records live on the device in IndexedDB; JSON backup/restore moves them.
+- No protected health information — the wellness page describes the program, it never stores a claim.
+- Every record carries an ID, a timestamp and who confirmed it.
+
+## Repo layout
+
+```
+index.html      app shell (role switch, 6 tabs)
+app.js          data + views + print sheets
+styles.css      app + print stylesheet
+sw.js           offline cache
+safety-huddle.html   the weekly safety huddle generator (embedded)
+demo/           seeded build for GitHub Pages (fake local data via idbshim)
+icons/          app icons + the brand logo used on printed sheets
 ```
 
-## Rebuild the demo
+---
 
-```bash
-python3 ~/scripts/make_nav_demo.py
-```
-
-Demo seed lives at `~/scripts/navdemo/seed.js` (three Iowa-area locations with a
-mix of confirmed, review and TBD values).
-
-## Data model (for the Driver Hub merge)
-
-```js
-// IndexedDB usaf_navigator_db / usaf_navigator_v1
-{
-  locations: [{ id, name, city, state, driverCount, benefitYear, planStart,
-                carriers, union, published, contacts: { trainer, dispatch,
-                dispatcher, hr }, auditId, createdAt, updatedAt }],
-  values: { "<locId>:<programId>": { amount, eligibility, claim, effective,
-            confirmedBy, confirmedAt, status, auditId, updatedAt } },
-  rides: [{ id, locId, date, drivers, covered: [programId], notes,
-            questions: [{ id, text, answered }], auditId }],
-  questions: [{ id, locId, rideId, text, answered, createdAt }],
-  settings: { selectedLocation }
-}
-```
-
-Programs are a fixed list in `app.js` (`PROGRAMS`), so the same IDs work in both
-apps. The eventual merge adds a **Benefits** tab to Driver Hub that reads these
-stores; nothing here blocks that.
+Built by a Driver Navigator, for the Driver Navigator.
